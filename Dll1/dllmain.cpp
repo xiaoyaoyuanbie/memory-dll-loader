@@ -1,51 +1,51 @@
-﻿// dllmain.cpp : 定义 DLL 应用程序的入口点。
+// dllmain.cpp : DLL Entry Point
 #include "pch.h"
 
 #include <Windows.h>
 #include <stdio.h>
 
-// 导出函数 - 整数加法
+// Export function - Integer addition
 extern "C" __declspec(dllexport) int Add(int a, int b)
 {
 	printf("    [DLL] Add(%d, %d) called\n", a, b);
 	return a + b;
 }
 
-// 导出函数 - 整数减法
+// Export function - Integer subtraction
 extern "C" __declspec(dllexport) int Sub(int a, int b)
 {
 	printf("    [DLL] Sub(%d, %d) called\n", a, b);
 	return a - b;
 }
 
-// 导出函数 - 整数乘法
+// Export function - Integer multiplication
 extern "C" __declspec(dllexport) int Mul(int a, int b)
 {
 	printf("    [DLL] Mul(%d, %d) called\n", a, b);
 	return a * b;
 }
 
-// 导出函数 - 显示消息
+// Export function - Show message
 extern "C" __declspec(dllexport) void ShowMessage(const char* msg)
 {
 	printf("    [DLL] ShowMessage: %s\n", msg);
 }
 
-// 导出函数 - 获取值
+// Export function - Get value
 extern "C" __declspec(dllexport) int GetValue()
 {
 	printf("    [DLL] GetValue() called\n");
 	return 42;
 }
 
-// 导出函数 - 通过序号导出
+// Export function - Exported by ordinal
 extern "C" __declspec(dllexport) int OrdinalFunc()
 {
 	printf("    [DLL] OrdinalFunc() called (exported by ordinal)\n");
 	return 999;
 }
 
-// DLL 入口点
+// DLL Entry Point
 BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserved)
 {
 	switch (ul_reason_for_call)
@@ -66,4 +66,3 @@ BOOL APIENTRY DllMain(HMODULE hModule, DWORD ul_reason_for_call, LPVOID lpReserv
 	}
 	return TRUE;
 }
-

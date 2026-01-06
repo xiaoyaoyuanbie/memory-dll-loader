@@ -154,7 +154,7 @@ bool reloctiontable(char* chbaseaddress, DWORD dwOriginalImageBase)
 		return TRUE;
 	}
 
-	// 计算实际加载地址与首选基址的差值
+	// Calculate the delta between actual load address and preferred base address
 	DWORD dwDelta = (DWORD)chbaseaddress - dwOriginalImageBase;
 	if (dwDelta == 0)
 	{
@@ -303,7 +303,7 @@ int main(int argc, char* argv[])
 		return 1;
 	}
 
-	// 在修改之前保存原始 ImageBase
+	// Save the original ImageBase before memory conversion
 	printf("[*] Saving original ImageBase: 0x%X\n", GetOriginalImageBase((char*)lpmapaddress));
 	DWORD dwOriginalImageBase = GetOriginalImageBase((char*)lpmapaddress);
 
